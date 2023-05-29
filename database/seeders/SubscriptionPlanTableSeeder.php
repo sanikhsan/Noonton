@@ -18,13 +18,13 @@ class SubscriptionPlanTableSeeder extends Seeder
                 'name' => 'Basic',
                 'price' => 299000,
                 'active_period_in_months' => 3,
-                'features' => json_encode(['Unlock 10 basic movies', 'Support 24/7 ready', 'Up to 3 users'])
+                'featured' => json_encode(['Unlock 10 basic movies', 'Support 24/7 ready', 'Up to 3 users'])
             ],
             [
                 'name' => 'Premium',
                 'price' => 899000,
                 'active_period_in_months' => 3,
-                'features' => json_encode(['Unlock 200 awards movies', '180 subtitles available', 'iOS, Android, TV', 'Offline Mode', 'Up to 20 users', 'Support 24/7 ready'])
+                'featured' => json_encode(['Unlock 200 awards movies', '180 subtitles available', 'iOS, Android, TV', 'Offline Mode', 'Up to 20 users', 'Support 24/7 ready'])
             ]
         ];
 
