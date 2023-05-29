@@ -25,6 +25,24 @@ Route::get('/', function () {
     ]);
 });
 
+Route::prefix('slicing')->group(function () {
+    Route::get('login', function () {
+        return Inertia::render('Slice/Login');
+    });
+    Route::get('register', function () {
+        return Inertia::render('Slice/Register');
+    });
+    Route::get('dashboard', function () {
+        return Inertia::render('Slice/Dashboard');
+    });
+    Route::get('subscription', function () {
+        return Inertia::render('Slice/SubscriptionPlan');
+    });
+    Route::get('player/{slug}', function () {
+        return Inertia::render('Slice/Player');
+    })->name('player');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
