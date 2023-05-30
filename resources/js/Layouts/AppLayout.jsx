@@ -1,7 +1,7 @@
 import SidebarLayout from "./SidebarLayout";
 import TopbarLayout from "./TopbarLayout";
 
-export default function AppLayout({children}) {
+export default function AppLayout({auth, children}) {
     return (
         <>
         {/* Desktop Only */}
@@ -16,7 +16,7 @@ export default function AppLayout({children}) {
                 <div className="py-10 flex flex-col gap-[50px]">
 
                     {/* Top Bar Section */}
-                    <TopbarLayout />
+                    <TopbarLayout user={auth.user} />
                     {/* Top Bar Section */}
 
                     {/* Main Section */}

@@ -25,6 +25,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::redirect('/', '/login');
+
 Route::prefix('slicing')->group(function () {
     Route::get('login', function () {
         return Inertia::render('Slice/Login');
@@ -43,10 +45,6 @@ Route::prefix('slicing')->group(function () {
     })->name('player');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -54,3 +52,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
+require __DIR__.'/customer.php';

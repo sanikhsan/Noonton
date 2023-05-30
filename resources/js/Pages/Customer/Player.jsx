@@ -1,13 +1,13 @@
 import ReactPlayer from "react-player";
 import { Link } from "@inertiajs/react";
 
-export default function Player() {
+export default function Player({movie}) {
     return (
         <section className="mx-auto w-screen h-screen relative watching-page font-poppins pt-20 bg-form-bg" id="stream">
 
             <ReactPlayer
                 className="overflow-hidden h-screen w-screen"
-                url={"https://d33kv075lir7n3.cloudfront.net/Details+Screen+Part+Final.mp4"} 
+                url={movie.video_url} 
                 controls
                 width={"100%"}
                 height={"850px"}
@@ -15,7 +15,7 @@ export default function Player() {
 
             {/* <!-- Button back to dashboard --> */}
             <div className="absolute top-5 left-5 z-20">
-                <Link href="/slicing/dashboard">
+                <Link href={route('customer.dashboard.index')}>
                     <img src="/icons/ic_arrow-left.svg" className="transition-all btn-back w-[46px] border border-double border-black rounded-full" alt="stream" />
                 </Link>
             </div>
@@ -23,7 +23,7 @@ export default function Player() {
             {/* <!-- Video Title --> */}
             <div className="absolute title-video top-7 left-1/2 -translate-x-1/2 max-w-[310px] md:max-w-[620px] text-center">
                 <span className="font-medium text-2xl transition-all text-white drop-shadow-md select-none">
-                    Details Screen
+                    {movie.name}
                 </span>
             </div>
         </section>

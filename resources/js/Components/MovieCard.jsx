@@ -22,7 +22,7 @@ export default function MovieCard ({
                 <img src="/icons/ic_play.svg" width="50" alt=""/>
             </div>
             <Link
-                href={route("player", slug)}
+                href={route("customer.dashboard.player", slug)}
                 className="inset-0 absolute z-50">
             </Link>
         </div>

@@ -14,7 +14,7 @@ export default function FeaturedMovie({
             <div className="rating absolute top-0 left-0">
                 <div className="p-[30px] flex items-center gap-1">
                         <img src="/icons/ic_star.svg" alt=""/>
-                        <span className="text-sm font-medium text-white mt-1">{rating.toFixed(1)}/5.0</span>
+                        <span className="text-sm font-medium text-black mt-1">{rating}/10.0</span>
                 </div>
             </div>
             {/* <!-- bottom detail --> */}
@@ -29,7 +29,7 @@ export default function FeaturedMovie({
                     <img src="/icons/ic_play.svg" width="50" alt="" />
                 </div>
             </div>
-            <a href={route("player", slug)} className="inset-0 absolute z-50"></a>
+            <a href={route("customer.dashboard.player", slug)} className="inset-0 absolute z-50"></a>
         </div>
     );
 }
