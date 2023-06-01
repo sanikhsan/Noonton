@@ -1,5 +1,5 @@
-import AppLayout from "@/Layouts/AppLayout";
-import SubscriptionCard from "@/Components/SubscriptionCard";
+import AppLayout from "@/Layouts/Customer/AppLayout";
+import SubscriptionCard from "@/Components/Customer/SubscriptionCard";
 import { Head, router } from "@inertiajs/react";
 
 export default function SubscriptionPlan ({auth, subscriptionPlans}) {

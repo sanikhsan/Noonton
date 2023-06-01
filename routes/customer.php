@@ -21,7 +21,7 @@ use Inertia\Inertia;
 
 route::prefix('dashboard')->middleware(['auth', 'role:CUSTOMER'])->name('customer.dashboard.')->group(function () {
     // Home Dashboard or Movie List
-    Route::get('/', [CustomerDashboard::class, 'index'])->name('index');
+    Route::get('/watch', [CustomerDashboard::class, 'index'])->name('index');
 
     // Movie Player
     Route::get('/player/{movie:slug}', [MovieController::class, 'player'])->name('player')->middleware('checkCustomerSubscription:true');

@@ -13,6 +13,14 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    public function roles(): RedirectResponse
+    {
+        if (Auth::user()->hasRole('ADMIN')) {
+            return redirect(route('admin.dashboard.index'));
+        }
+        return redirect(route('customer.dashboard.index'));
+    }
+
     /**
      * Display the user's profile form.
      */

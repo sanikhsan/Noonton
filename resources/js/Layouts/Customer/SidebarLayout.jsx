@@ -1,7 +1,7 @@
-import SubscriptionDetail from "@/Components/SubscriptionDetail";
-import { OtherMenu, UserMenu } from "@/Components/MenuList";
+import SubscriptionDetail from "@/Components/Customer/SubscriptionDetail";
+import { OtherMenu, UserMenu } from "@/Components/Customer/MenuList";
 import { Link } from "@inertiajs/react";
-import MenuItem from "@/Components/MenuItem";
+import MenuItem from "@/Components/Customer/MenuItem";
 
 export default function Sidebar({auth}) {
     return (

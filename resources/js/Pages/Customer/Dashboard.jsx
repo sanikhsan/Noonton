@@ -1,8 +1,8 @@
-import AppLayout from "@/Layouts/AppLayout";
+import AppLayout from "@/Layouts/Customer/AppLayout";
 import Flickity from "react-flickity-component";
-import FeaturedMovie from "@/Components/FeaturedMovie";
+import FeaturedMovie from "@/Components/Customer/FeaturedMovie";
 import { Head } from "@inertiajs/react";
-import MovieCard from "@/Components/MovieCard";
+import MovieCard from "@/Components/Customer/MovieCard";
 
 const flickityOptions = {
     "cellAlign": "left",

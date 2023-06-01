@@ -26,24 +26,7 @@ Route::get('/', function () {
 });
 
 Route::redirect('/', '/login');
-
-Route::prefix('slicing')->group(function () {
-    Route::get('login', function () {
-        return Inertia::render('Slice/Login');
-    });
-    Route::get('register', function () {
-        return Inertia::render('Slice/Register');
-    });
-    Route::get('dashboard', function () {
-        return Inertia::render('Slice/Dashboard');
-    });
-    Route::get('subscription', function () {
-        return Inertia::render('Slice/SubscriptionPlan');
-    });
-    Route::get('player/{slug}', function () {
-        return Inertia::render('Slice/Player');
-    })->name('player');
-});
+Route::get('/dashboard', [ProfileController::class, 'roles']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

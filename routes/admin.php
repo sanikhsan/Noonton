@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminController;
+use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +17,8 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::prefix('admin')->middleware(['auth', 'role:ADMIN'])->name('admin.')->group(function() {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard.index');
+    Route::resource('movie', MovieController::class);
+});

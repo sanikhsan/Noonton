@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import TextInput from '@/Components/TextInput';
-import PrimaryButton from '@/Components/PrimaryButton';
+import InputError from '@/Components/Customer/InputError';
+import InputLabel from '@/Components/Customer/InputLabel';
+import TextInput from '@/Components/Customer/TextInput';
+import PrimaryButton from '@/Components/Customer/PrimaryButton';
 import { Link, Head, useForm } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
