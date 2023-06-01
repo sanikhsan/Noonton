@@ -8,7 +8,7 @@ export default function AppLayout({auth, children}) {
         <div className="mx-auto max-w-screen hidden lg:block">
 
             {/* Sidebar Section */}
-            <SidebarLayout />
+            <SidebarLayout auth={auth} />
             {/* Sidebar Section */}
 
             {/* Content Section */}
