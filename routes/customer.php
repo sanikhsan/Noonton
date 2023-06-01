@@ -24,11 +24,11 @@ route::prefix('dashboard')->middleware(['auth', 'role:CUSTOMER'])->name('custome
     Route::get('/', [CustomerDashboard::class, 'index'])->name('index');
 
     // Movie Player
-    Route::get('/player/{movie:slug}', [MovieController::class, 'player'])->name('player');
+    Route::get('/player/{movie:slug}', [MovieController::class, 'player'])->name('player')->middleware('checkCustomerSubscription:true');
 
     // Show Subscription Plan
-    Route::get('/subscription-plan', [SubscriptionPlanController::class, 'plan'])->name('subscription');
+    Route::get('/subscription-plan', [SubscriptionPlanController::class, 'plan'])->name('subscription')->middleware('checkCustomerSubscription:false');
 
     // Select Subscription Plan
-    Route::post('/subscription-plan/{subscriptionPlan}/subscribe', [SubscriptionPlanController::class, 'selectPlan'])->name('subscribePlan');
+    Route::post('/subscription-plan/{subscriptionPlan}/subscribe', [SubscriptionPlanController::class, 'selectPlan'])->name('subscribePlan')->middleware('checkCustomerSubscription:false');
 });
