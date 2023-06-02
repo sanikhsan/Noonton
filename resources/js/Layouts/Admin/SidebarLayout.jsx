@@ -18,8 +18,7 @@ export default function Sidebar({auth}) {
                                 link={menu.link}
                                 icon={menu.icon}
                                 text={menu.text}
-                                isActive={menu.link &&  route().current(menu.link)}
-
+                                isActive={menu.route && route().current(menu.route)}
                             />
                         ))}
                     </div>
@@ -32,7 +31,7 @@ export default function Sidebar({auth}) {
                                 link={menu.link}
                                 icon={menu.icon}
                                 text={menu.text}
-                                isActive={menu.link && route().current(menu.link)}
+                                isActive={menu.route && route().current(menu.route)}
                                 method={menu.method}
                             />
                         ))}

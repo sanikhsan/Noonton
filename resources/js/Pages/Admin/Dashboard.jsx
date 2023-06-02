@@ -1,7 +1,10 @@
 import AppLayout from "@/Layouts/Admin/AppLayout";
 import { Head } from "@inertiajs/react";
 
-export default function AdminDashboard ({auth}) {
+export default function AdminDashboard ({
+    auth,
+    userSubscriptions
+}) {
     return (
         <AppLayout auth={auth}> 
             <Head title="Admin Dashboard"/>
@@ -10,91 +13,52 @@ export default function AdminDashboard ({auth}) {
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="px-6 py-3">
-                                Product name
+                                Nama Pelanggan
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Color
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Category
+                                Subscription Package
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Price
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Action
+                                Active Until
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Payment Status
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="bg-white border-b  ">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td className="px-6 py-4">
-                                Silver
-                            </td>
-                            <td className="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td className="px-6 py-4">
-                                $2999
-                            </td>
-                            <td className="px-6 py-4">
-                                <a href="#" className="font-medium text-blue-600  hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 ">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                Microsoft Surface Pro
-                            </th>
-                            <td className="px-6 py-4">
-                                White
-                            </td>
-                            <td className="px-6 py-4">
-                                Laptop PC
-                            </td>
-                            <td className="px-6 py-4">
-                                $1999
-                            </td>
-                            <td className="px-6 py-4">
-                                <a href="#" className="font-medium text-blue-600  hover:underline">Edit</a>
+                        {
+                        userSubscriptions !== null
+                        ?
+                        userSubscriptions.map(userSubscription =>
+                            <tr className="bg-white border-b" key={userSubscription.id}>
+                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    {userSubscription.user_id}
+                                </th>
+                                <td className="px-6 py-4">
+                                    {userSubscription.subscription_plan_id}
+                                </td>
+                                <td className="px-6 py-4">
+                                    Rp {userSubscription.price.toLocaleString()}
+                                </td>
+                                <td className="px-6 py-4">
+                                    {userSubscription.expired_date}
+                                </td>
+                                <td className="px-6 py-4">
+                                    {userSubscription.payment_status}
+                                </td>
+                            </tr>
+                        )
+                        :
+                        <tr className="bg-white border-b text-center">
+                            <td colSpan="5">
+                                <p className="text-2xl m-5">Tidak Ada Data untuk Ditampilkan</p>
                             </td>
                         </tr>
-                        <tr className="bg-white border-b  ">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                Magic Mouse 2
-                            </th>
-                            <td className="px-6 py-4">
-                                Black
-                            </td>
-                            <td className="px-6 py-4">
-                                Accessories
-                            </td>
-                            <td className="px-6 py-4">
-                                $99
-                            </td>
-                            <td className="px-6 py-4">
-                                <a href="#" className="font-medium text-blue-600  hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 ">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                Google Pixel Phone
-                            </th>
-                            <td className="px-6 py-4">
-                                Gray
-                            </td>
-                            <td className="px-6 py-4">
-                                Phone
-                            </td>
-                            <td className="px-6 py-4">
-                                $799
-                            </td>
-                            <td className="px-6 py-4">
-                                <a href="#" className="font-medium text-blue-600  hover:underline">Edit</a>
-                            </td>
-                        </tr>
+                        } 
                     </tbody>
                 </table>
             </div>

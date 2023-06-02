@@ -20,5 +20,6 @@ use Inertia\Inertia;
 
 Route::prefix('admin')->middleware(['auth', 'role:ADMIN'])->name('admin.')->group(function() {
     Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard.index');
+    Route::put('movie/{movie}/restore', [MovieController::class , 'restore'])->name('movie.restore');
     Route::resource('movie', MovieController::class);
 });

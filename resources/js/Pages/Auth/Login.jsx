@@ -67,7 +67,6 @@ export default function Login({ status, canResetPassword }) {
                                     placeholder="Password"
                                     autoComplete="password"
                                     value={data.password}
-                                    isFocused={true}
                                     onChange={(e) => setData('password', e.target.value)}
                                 />
                             </div>
