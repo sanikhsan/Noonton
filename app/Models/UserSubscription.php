@@ -17,10 +17,14 @@ class UserSubscription extends Model
         'price',
         'expired_date',
         'payment_status',
-        'snapToken'
+        'snap_token'
     ];
 
     public function subscriptionPlan(): BelongsTo {
         return $this->belongsTo(SubscriptionPlan::class);
+    }
+
+    public function User(): BelongsTo {
+        return $this->belongsTo(User::class);
     }
 }

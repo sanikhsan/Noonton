@@ -59,8 +59,11 @@ class HandleInertiaRequests extends Middleware
                 'activePlan' => $this->activePlan(),
             ],
             'flash' => [
-                'message' => fn () => $request->session()->get('message'),
-                'color' => fn () => $request->session()->get('color'),
+                'message' => $request->session()->get('message'),
+                'color' => $request->session()->get('color'),
+            ],
+            'env' => [
+                'MIDTRANS_CLIENTKEY' => env("MIDTRANS_CLIENTKEY"),
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [

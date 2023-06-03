@@ -51,7 +51,7 @@ export default function MovieIndex({
                     </thead>
                     <tbody>
                         {
-                        movies !== null
+                        movies.length !== 0
                         ?
                         movies.map(movie => 
                             <tr className="bg-white border-b" key={movie.id}>

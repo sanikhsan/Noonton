@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index () {
         return Inertia::render('Admin/Dashboard', [
-            'userSubscriptions' => UserSubscription::latest()->get()
+            'userSubscriptions' => UserSubscription::with(['User:id,name', 'subscriptionPlan:id,name'])->latest()->get()
         ]);
     }
 }

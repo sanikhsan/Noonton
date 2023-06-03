@@ -23,6 +23,9 @@ route::prefix('dashboard')->middleware(['auth', 'role:CUSTOMER'])->name('custome
     // Home Dashboard or Movie List
     Route::get('/watch', [CustomerDashboard::class, 'index'])->name('index');
 
+    // Customer Transaction History
+    Route::get('/transaction', [CustomerDashboard::class, 'history'])->name('transaction');
+
     // Movie Player
     Route::get('/player/{movie:slug}', [MovieController::class, 'player'])->name('player')->middleware('checkCustomerSubscription:true');
 
@@ -31,4 +34,7 @@ route::prefix('dashboard')->middleware(['auth', 'role:CUSTOMER'])->name('custome
 
     // Select Subscription Plan
     Route::post('/subscription-plan/{subscriptionPlan}/subscribe', [SubscriptionPlanController::class, 'selectPlan'])->name('subscribePlan')->middleware('checkCustomerSubscription:false');
+
+    // Midtrans CallBack Route
+    Route::post('/midtrans/notification', [SubscriptionPlanController::class, 'midtransCallback'])->name('midtrans');
 });
